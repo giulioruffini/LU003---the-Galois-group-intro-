@@ -541,6 +541,112 @@ Structure can be viewed as a compressive, algorithmic specification (constraints
 
 
 
+ 
+\section{The Solvability of Equations: From Geometry to Algebra}
+
+We have established that the Galois group encodes the symmetry of an equation's roots. But why do we care about this symmetry? The historical triumph of Galois theory was not just in defining these groups, but in using them to determine which mathematical problems are \textit{possible} to solve.
+
+We can classify numbers based on the tools required to generate them. This classification reveals a strict hierarchy, shown in Figure~\ref{fig:hierarchy}.
+
+\begin{figure}[h]
+    \centering
+    % Placeholder for the first image generated (Hierarchy of Numbers)
+    \includegraphics[width=0.85\linewidth]{hierarchy.png}
+
+    
+    \caption{\textbf{The Hierarchy of Numbers.} Note the distinction between Algebraic numbers (roots of polynomials) and the subset of those that are Expressible by Radicals. Transcendental numbers (like $\pi$) live entirely outside the algebraic realm.}
+    \label{fig:hierarchy}
+\end{figure}
+
+ 
+
+
+
+\subsection{Constructible vs. Expressible: The Geometric Gap}
+
+A common point of confusion is the difference between numbers that can be "constructed" and those that can be "written as a formula." These are distinct concepts based on the "hardware" allowed:
+
+\begin{enumerate}
+    \item \textbf{Constructible Numbers (Ruler \& Compass):} Ancient Greek geometry allows only two operations: drawing a line through two points and drawing a circle. Algebraically, finding the intersection of lines and circles corresponds to solving \textbf{linear} and \textbf{quadratic} equations. Therefore, a number is constructible only if it can be built using integers and \textbf{square roots} ($\sqrt{\cdot}$).
+    \item \textbf{Expressible by Radicals:} Algebraic solvability allows a powerful upgrade. We are allowed to use \textit{any} $n$-th root ($\sqrt[3]{\cdot}, \sqrt[4]{\cdot}, \sqrt[5]{\cdot}$, etc.).
+\end{enumerate}
+
+\begin{figure}[t]
+    \centering
+    % Placeholder for the distinction image (Expressible vs Constructible)
+    \includegraphics[width=1\linewidth]{constructible.png}
+    \caption{\textbf{Tools Determine the Domain.} Constructible numbers are limited to square roots because the intersection of circles and lines never yields a degree higher than 2. "Doubling the Cube" requires $\sqrt[3]{2}$, which is expressible by radicals but impossible to construct with a compass.}
+    \label{fig:constructible}
+\end{figure}
+
+ 
+
+This distinction solves the ancient problem of \textbf{Doubling the Cube}. To double a cube of volume 1, we need a side length of $\sqrt[3]{2}$.
+\begin{itemize}
+    \item Is $\sqrt[3]{2}$ expressible by radicals? \textbf{Yes.} (We just wrote it).
+    \item Is $\sqrt[3]{2}$ constructible? \textbf{No.} The Galois group of $x^3-2$ implies a degree of 3. Constructible operations only allow degrees that are powers of 2 (compounded square roots).
+\end{itemize}
+
+\subsection{The General Solvability Condition}
+
+The most profound result of the theory is the criterion for solvability by radicals. Can we find a formula for the roots of a polynomial using only $+,-,\times,\div$ and $\sqrt[n]{\cdot}$?
+
+Galois proved that an equation is solvable if and only if its Galois group is "Solvable."
+
+\begin{definition}[Solvable Group (Informal)]
+    A group $G$ is solvable if it can be broken down into a series of "simple" abelian layers. Effectively, this means the complex symmetry can be decomposed into a sequence of prime-order cyclic steps, each corresponding to extracting an $n$-th root.
+\end{definition}
+
+For polynomials of degree $n \leq 4$, the symmetric group $S_n$ is solvable. This is why we have the Quadratic Formula, the Cubic Formula, and the Quartic Formula.
+
+However, for $n = 5$, the symmetric group $S_5$ is \textbf{not solvable}. It contains symmetries so tangled that they cannot be untied into abelian steps. Consequently, there is no general formula for the Quintic equation.
+
+\begin{figure}[h]
+    \centering
+    % Placeholder for the flowchart image (Solvability Logic)
+    \includegraphics[width=0.95\linewidth]{solvability_flowchart.png}
+    \caption{\textbf{The Galois Filter.} To determine if an equation is solvable, we analyze its Galois Group $G$. If $G$ is a "Solvable Group" (a specific group-theoretic property), we can derive a formula. If $G$ is not solvable (like $S_5$), the roots exist but cannot be expressed using radicals.}
+    \label{fig:solvability}
+\end{figure}
+
+ 
+
+\begin{insight}
+    \textbf{Symmetry as a barrier to calculation.} \\
+    %We often think of symmetry as %something that makes problems easier (e.g., simplifying a physics problem). In Galois theory, \textit{too much} symmetry makes a problem impossible. \\
+
+    If the permutations of the roots are maximally complex (the group $S_5$ or $A_5$), the structure is too "rigidly chaotic" to be broken down. We cannot isolate the roots one by one using radicals because the group structure refuses to be dismantled.
+\end{insight}
+
+
+\subsection{The Meaning of "Solvable": Compositionality vs. Chaos}
+
+Why does the structure of a group determine if we can write a formula? The key lies in \textbf{decomposition}.
+
+A formula like the Quadratic Formula is essentially a sequential computer program:
+\begin{enumerate}
+    \item Calculate the discriminant $D$.
+    \item Take a square root (Step 1).
+    \item Perform arithmetic to find $x$ (Step 2).
+\end{enumerate}
+
+This step-by-step approach works only because the symmetry group of the quadratic equation can be broken down into smaller, independent layers (subgroups). We solve the symmetry "one layer at a time."
+
+\begin{itemize}
+    \item \textbf{Solvable Groups (Compositional):} These groups have a hierarchical structure. They can be factored into a "tower" of simple abelian groups. This algebraic decomposition corresponds exactly to the algorithmic process of taking successive $n$-th roots.
+    \item \textbf{Unsolvable Groups (Monolithic):} The group of the general Quintic equation ($S_5$) contains a massive, "atomic" core called a \textit{Simple Group} ($A_5$). This structure has no internal layers—it is a solid block of symmetry that cannot be factored.
+\end{itemize}
+
+\begin{insight}
+    \textbf{Solvability is Decomposability.} \\
+    
+    Your intuition is correct: a "solvable" problem is one that is \textbf{compositional}. It can be broken down into a sequence of simpler problems (abelian extensions). \\
+    
+    The "Unsolvable" Quintic is not unsolvable because it lacks symmetry, but because its symmetry is \textbf{monolithic}. It acts like a "Gordian Knot"—a tangled mess of dependencies that cannot be untied strand by strand. Because the Group cannot be decomposed into steps, the solution cannot be written as a step-by-step formula (radicals).
+\end{insight}
+
+
+
 % --- Bibitems for the AIT–Galois section ---
 \begin{thebibliography}{99}
 \bibitem{MilneFT}
@@ -579,4 +685,6 @@ J.~Rissanen,
 \newblock \emph{Automatica} \textbf{14}(5): 465--471, 1978.
 \newblock DOI \href{https://doi.org/10.1016/0005-1098(78)90005-5}{10.1016/0005-1098(78)90005-5}.
 \end{thebibliography}
+
+
 \end{document}
