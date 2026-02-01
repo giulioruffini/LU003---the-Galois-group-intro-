@@ -34,8 +34,8 @@
 \newcommand{\C}{\mathbb{C}}
 \newcommand{\Gal}{\text{Gal}}
 
-\title{\textbf{LU003 - An Introduction to Galois Theory}\\ \large Symmetries of Equations and Field Extensions}
-\author{Pedagogical Series (Giulio with Gaia)}
+\title{\textbf{WP0052- LU003 - An Introduction to Galois Theory}\\ \large Symmetries of Equations and Field Extensions}
+\author{Pedagogical Series (Giulio Ruffini\footnote{giulio.ruffini@bcom.one} with Gemini-Gaia)}
 \date{Feb 1 2026}
 
 \begin{document}
@@ -43,7 +43,7 @@
 \maketitle
 
 \begin{abstract}
-    This note aims to demystify the foundational definitions of Galois Theory: field extensions, automorphisms, and the Galois group. Rather than stating abstract definitions upfront, we derive them as necessary consequences of algebraic consistency. We begin with the fundamental example of $x^2+1=0$ to illustrate how algebraic symmetries arise from the indistinguishability of roots relative to a base field (e.g., $i$ and $-i$ are merely distinct labels for indistinguishable algebraic twins). Finally, we examine why the Galois group is rarely the full set of permutations, but rather a structure constrained by the ``hidden'' algebraic relations within the field.
+    This note aims to demystify the foundational definitions of Galois Theory: field extensions, automorphisms, and the Galois group. Rather than stating abstract definitions upfront, we derive them as necessary consequences of algebraic consistency. We begin with the fundamental example of $x^2+1=0$ to illustrate how algebraic symmetries arise from the indistinguishability of roots relative to a base field (e.g., $i$ and $-i$ are merely distinct labels for indistinguishable algebraic twins). Finally, we examine why the Galois group is rarely the full set of permutations, but rather a structure constrained by the ``hidden'' algebraic relations within the field. We connect Galois theory to the perspective of mathematical structure, symmetry and AIT.
 
     
 \end{abstract}
@@ -209,8 +209,15 @@ If we were to erase every instance of $i$ in a textbook and replace it with $-i$
 
 It is natural to ask: can we do this for Real numbers? Can we "relabel" the number line?
 
+
+Can we map $\sigma(x) = -x$?
+This preserves addition: $-(a+b) = -a - b$.
+However, it fails multiplication.
+\[ \sigma(1 \cdot 1) = -1 \]
+\[ \sigma(1) \cdot \sigma(1) = (-1)(-1) = 1 \]
+The structure requires that ``positive times positive equals positive." If we flip signs, we break this rule.
  
-Consider a mapping where we stretch the number line by a factor $\alpha$:
+Next, consider a mapping where we stretch the number line by a factor $\alpha$:
 \[ \sigma(x) = \alpha x \]
 If we only cared about \textbf{addition}, this would work. 
 \[ \alpha(x+y) = \alpha x + \alpha y \]
